@@ -23,7 +23,6 @@ async function getQuotes() {
         return quotesArray;
     })
 }
-
 const promise1 = getQuotes();
 
 
@@ -53,8 +52,7 @@ const promise2 = fetch(requestCats)
             document.querySelector('#generateButton').addEventListener('click', () => {
                 // Send a message to the worker to get a random cat URL
                 worker.postMessage({ action: 'getRandomCat', catsArray });
-            });
-            
+            });           
         })
         .catch(errorCats => {
             console.log('error: data not returned');
@@ -85,5 +83,13 @@ function fetchDesires() {
 }
 fetchDesires();
 
+
+Promise.any([promise1, promise2])
+    .then((value) => {
+        console.log("one of the promises resolved. good job", value);
+    }) 
+    .catch((error) => {
+        console.log("both promises were rejected", error);
+    });
 
 
