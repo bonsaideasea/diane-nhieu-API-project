@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+
 // ZEN QUOTES API
 const urlQuotes = 'https://zenquotes.io/api/quotes/'
 const requestQuotes = new Request(urlQuotes)
@@ -27,11 +30,10 @@ const promise1 = getQuotes();
 
 
 // CAT API
-//require("dotenv").config();
-//console.log(process.env);
-//const apiKey = process.env.CAT_API_KEY;
 
 const urlCats = 'https://api.thecatapi.com/v1/images/search?limit=50'
+
+const apiKey = process.env.CAT_API_KEY;
 
 const requestCats = new Request(urlCats, {
     headers: {
