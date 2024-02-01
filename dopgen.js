@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 
 // ZEN QUOTES API
 const urlQuotes = 'https://zenquotes.io/api/quotes/'
@@ -37,7 +35,7 @@ const apiKey = process.env.CAT_API_KEY;
 
 const requestCats = new Request(urlCats, {
     headers: {
-        'x-api-key': 'live_acRDKx0TIfO4sdhrpP4YcApkCC0J0TAZHnvIqqofFgtFXj2N4o3opwiDaI6QtrbI'
+        'x-api-key': apiKey
     }
 });
 
