@@ -31,12 +31,21 @@ const promise1 = getQuotes();
 
 const urlCats = 'https://api.thecatapi.com/v1/images/search?limit=50'
 
-const apiKey = process.env.CAT_API_KEY;
+//require('dotenv').config()
+//const apiKey = process.env.CAT_API_KEY;
+
+
+var apiKey = prompt("Please enter your API key:");
+if (apiKey !== null && apiKey.trim() !== "") {
+    console.log("API Key entered:", apiKey);
+} else {
+    console.log("No API Key entered. Please try again.");
+}
 
 const requestCats = new Request(urlCats, {
     headers: {
         'x-api-key': apiKey
-    }
+    },
 });
 
 const promise2 = fetch(requestCats)
